@@ -10,7 +10,7 @@
       <topBarEnabled>true</topBarEnabled>
       <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
       <gitHub>
-        <projectId>jprante/elasticsearch-xml</projectId>
+        <projectId>jprante/elasticsearch-arrayformat</projectId>
         <ribbonOrientation>right</ribbonOrientation>
         <ribbonColor>black</ribbonColor>
       </gitHub>
