@@ -28,12 +28,7 @@ public class ArrayformatToXContentListener extends RestResponseListener<SearchRe
         } else {
             builder.startArray();
             for (SearchHit hit : response.getHits().getHits()) {
-                builder.startObject();
-                Map<String,Object> source = hit.getSource();
-                for (String key : source.keySet()) {
-                    builder.field(key, source.get(key));
-                }
-                builder.endObject();
+                builder.map(hit.getSource());
             }
             builder.endArray();
         }
