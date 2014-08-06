@@ -33,7 +33,7 @@ public class ArrayformatRestSearchAction extends BaseRestHandler {
     }
 
     @Override
-    public void handleRequest(final RestRequest request, final RestChannel channel) {
+    public void handleRequest(final RestRequest request, final RestChannel channel, Client client) {
         SearchRequest searchRequest;
         searchRequest = RestSearchAction.parseSearchRequest(request);
         searchRequest.listenerThreaded(false);

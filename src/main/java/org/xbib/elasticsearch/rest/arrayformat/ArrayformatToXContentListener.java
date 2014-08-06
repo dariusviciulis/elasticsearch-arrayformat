@@ -9,8 +9,6 @@ import org.elasticsearch.rest.RestResponse;
 import org.elasticsearch.rest.action.support.RestResponseListener;
 import org.elasticsearch.search.SearchHit;
 
-import java.util.Map;
-
 public class ArrayformatToXContentListener extends RestResponseListener<SearchResponse> {
 
     public ArrayformatToXContentListener(RestChannel channel) {
@@ -23,7 +21,7 @@ public class ArrayformatToXContentListener extends RestResponseListener<SearchRe
     }
 
     public final RestResponse buildResponse(SearchResponse response, XContentBuilder builder) throws Exception {
-        if (response.getHits() == null || response.getHits().getHits().length == 0) {
+        if (response.getHits() == null || response.getHits().getHits() == null || response.getHits().getHits().length == 0) {
             builder.startArray().endArray();
         } else {
             builder.startArray();
