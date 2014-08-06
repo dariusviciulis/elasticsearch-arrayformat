@@ -17,38 +17,31 @@
 <span class="sourceLineNo">009</span>import org.elasticsearch.rest.action.support.RestResponseListener;<a name="line.9"></a>
 <span class="sourceLineNo">010</span>import org.elasticsearch.search.SearchHit;<a name="line.10"></a>
 <span class="sourceLineNo">011</span><a name="line.11"></a>
-<span class="sourceLineNo">012</span>import java.util.Map;<a name="line.12"></a>
+<span class="sourceLineNo">012</span>public class ArrayformatToXContentListener extends RestResponseListener&lt;SearchResponse&gt; {<a name="line.12"></a>
 <span class="sourceLineNo">013</span><a name="line.13"></a>
-<span class="sourceLineNo">014</span>public class ArrayformatToXContentListener extends RestResponseListener&lt;SearchResponse&gt; {<a name="line.14"></a>
-<span class="sourceLineNo">015</span><a name="line.15"></a>
-<span class="sourceLineNo">016</span>    public ArrayformatToXContentListener(RestChannel channel) {<a name="line.16"></a>
-<span class="sourceLineNo">017</span>        super(channel);<a name="line.17"></a>
-<span class="sourceLineNo">018</span>    }<a name="line.18"></a>
-<span class="sourceLineNo">019</span><a name="line.19"></a>
-<span class="sourceLineNo">020</span>    @Override<a name="line.20"></a>
-<span class="sourceLineNo">021</span>    public final RestResponse buildResponse(SearchResponse response) throws Exception {<a name="line.21"></a>
-<span class="sourceLineNo">022</span>        return buildResponse(response, channel.newBuilder());<a name="line.22"></a>
-<span class="sourceLineNo">023</span>    }<a name="line.23"></a>
-<span class="sourceLineNo">024</span><a name="line.24"></a>
-<span class="sourceLineNo">025</span>    public final RestResponse buildResponse(SearchResponse response, XContentBuilder builder) throws Exception {<a name="line.25"></a>
-<span class="sourceLineNo">026</span>        if (response.getHits() == null || response.getHits().getHits().length == 0) {<a name="line.26"></a>
-<span class="sourceLineNo">027</span>            builder.startArray().endArray();<a name="line.27"></a>
-<span class="sourceLineNo">028</span>        } else {<a name="line.28"></a>
-<span class="sourceLineNo">029</span>            builder.startArray();<a name="line.29"></a>
-<span class="sourceLineNo">030</span>            for (SearchHit hit : response.getHits().getHits()) {<a name="line.30"></a>
-<span class="sourceLineNo">031</span>                builder.startObject();<a name="line.31"></a>
-<span class="sourceLineNo">032</span>                Map&lt;String,Object&gt; source = hit.getSource();<a name="line.32"></a>
-<span class="sourceLineNo">033</span>                for (String key : source.keySet()) {<a name="line.33"></a>
-<span class="sourceLineNo">034</span>                    builder.field(key, source.get(key));<a name="line.34"></a>
-<span class="sourceLineNo">035</span>                }<a name="line.35"></a>
-<span class="sourceLineNo">036</span>                builder.endObject();<a name="line.36"></a>
-<span class="sourceLineNo">037</span>            }<a name="line.37"></a>
-<span class="sourceLineNo">038</span>            builder.endArray();<a name="line.38"></a>
-<span class="sourceLineNo">039</span>        }<a name="line.39"></a>
-<span class="sourceLineNo">040</span>        return new BytesRestResponse(response.status(), builder);<a name="line.40"></a>
-<span class="sourceLineNo">041</span>    }<a name="line.41"></a>
-<span class="sourceLineNo">042</span><a name="line.42"></a>
-<span class="sourceLineNo">043</span>}<a name="line.43"></a>
+<span class="sourceLineNo">014</span>    public ArrayformatToXContentListener(RestChannel channel) {<a name="line.14"></a>
+<span class="sourceLineNo">015</span>        super(channel);<a name="line.15"></a>
+<span class="sourceLineNo">016</span>    }<a name="line.16"></a>
+<span class="sourceLineNo">017</span><a name="line.17"></a>
+<span class="sourceLineNo">018</span>    @Override<a name="line.18"></a>
+<span class="sourceLineNo">019</span>    public final RestResponse buildResponse(SearchResponse response) throws Exception {<a name="line.19"></a>
+<span class="sourceLineNo">020</span>        return buildResponse(response, channel.newBuilder());<a name="line.20"></a>
+<span class="sourceLineNo">021</span>    }<a name="line.21"></a>
+<span class="sourceLineNo">022</span><a name="line.22"></a>
+<span class="sourceLineNo">023</span>    public final RestResponse buildResponse(SearchResponse response, XContentBuilder builder) throws Exception {<a name="line.23"></a>
+<span class="sourceLineNo">024</span>        if (response.getHits() == null || response.getHits().getHits() == null || response.getHits().getHits().length == 0) {<a name="line.24"></a>
+<span class="sourceLineNo">025</span>            builder.startArray().endArray();<a name="line.25"></a>
+<span class="sourceLineNo">026</span>        } else {<a name="line.26"></a>
+<span class="sourceLineNo">027</span>            builder.startArray();<a name="line.27"></a>
+<span class="sourceLineNo">028</span>            for (SearchHit hit : response.getHits().getHits()) {<a name="line.28"></a>
+<span class="sourceLineNo">029</span>                builder.map(hit.getSource());<a name="line.29"></a>
+<span class="sourceLineNo">030</span>            }<a name="line.30"></a>
+<span class="sourceLineNo">031</span>            builder.endArray();<a name="line.31"></a>
+<span class="sourceLineNo">032</span>        }<a name="line.32"></a>
+<span class="sourceLineNo">033</span>        return new BytesRestResponse(response.status(), builder);<a name="line.33"></a>
+<span class="sourceLineNo">034</span>    }<a name="line.34"></a>
+<span class="sourceLineNo">035</span><a name="line.35"></a>
+<span class="sourceLineNo">036</span>}<a name="line.36"></a>
 
 
 
