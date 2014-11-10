@@ -17,7 +17,7 @@ public class ArrayformatRestSearchAction extends BaseRestHandler {
 
     @Inject
     public ArrayformatRestSearchAction(Settings settings, Client client, RestController controller) {
-        super(settings, client);
+        super(settings, controller, client);
         controller.registerHandler(GET, "/_search_arrayformat", this);
         controller.registerHandler(POST, "/_search_arrayformat", this);
         controller.registerHandler(GET, "/{index}/_search_arrayformat", this);

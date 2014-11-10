@@ -43,12 +43,13 @@ This plugin offers array format for REST search responses.
 
 | Elasticsearch version    | Plugin      | Release date |
 | ------------------------ | ----------- | -------------|
+| 1.4.0                    | 1.4.0.0     | Nov 10, 2014 |
 | 1.3.1                    | 1.3.0.0     | Aug  6, 2014 |
 | 1.2.1                    | 1.2.1.0     | Jun  5, 2014 |
 
 ## Installation
 
-    ./bin/plugin -install arrayformat -url http://xbib.org/repository/org/xbib/elasticsearch/plugin/elasticsearch-arrayformat/1.3.0.0/elasticsearch-arrayformat-1.3.0.0.zip
+    ./bin/plugin -install arrayformat -url http://xbib.org/repository/org/xbib/elasticsearch/plugin/elasticsearch-arrayformat/1.4.0.0/elasticsearch-arrayformat-1.4.0.0.zip
 
 Do not forget to restart the node after installing.
 
@@ -56,6 +57,7 @@ Do not forget to restart the node after installing.
 
 | File                                          | SHA1                                     |
 | --------------------------------------------- | -----------------------------------------|
+| elasticsearch-arrayformat-1.4.0.0.zip         | 36246841e8b8f7a2f075baf1af6ff776a7e838ae |
 | elasticsearch-arrayformat-1.3.0.0.zip         | 5100fa4c1e7cc5fb5108856f313a808419720e51 |
 | elasticsearch-arrayformat-1.2.1.0.zip         | af3dbaa0e35729ec83d201050808fa035775547c |
 
