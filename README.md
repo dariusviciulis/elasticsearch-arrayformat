@@ -49,7 +49,7 @@ This plugin offers array format for REST search responses.
 
 ## Installation
 
-    ./bin/plugin -install arrayformat -url http://xbib.org/repository/org/xbib/elasticsearch/plugin/elasticsearch-arrayformat/1.4.0.0/elasticsearch-arrayformat-1.4.0.0.zip
+    ./bin/plugin -install arrayformat -url http://xbib.org/repository/org/xbib/elasticsearch/plugin/elasticsearch-arrayformat/1.4.0.0/elasticsearch-arrayformat-1.4.0.0-plugin.zip
 
 Do not forget to restart the node after installing.
 
